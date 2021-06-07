@@ -107,7 +107,7 @@ const PhotoList = ({ category }) => {
 
     const toggleModal = (image, i) => {
         setCurrentPhoto({...image, index: i});
-        setIsModalOpen(true);
+        setIsModalOpen(!isModalOpen);
     }
 
     return (
@@ -123,7 +123,7 @@ const PhotoList = ({ category }) => {
               />
             ))}
           </div>
-          {isModalOpen && <Modal currentPhoto={currentPhoto} />}
+          {isModalOpen && <Modal currentPhoto={currentPhoto} onClose={toggleModal} />}
         </div>
       );
 }
